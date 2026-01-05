@@ -1,0 +1,477 @@
+/* FriendCard.css */
+
+/* CSS Variables */
+:root {
+  --primary-color: #4361ee;
+  --primary-light: #5a7dff;
+  --secondary-color: #4cc9f0;
+  --accent-color: #7209b7;
+  --text-color: #333;
+  --text-light: #666;
+  --card-bg: #ffffff;
+  --card-shadow: rgba(0, 0, 0, 0.1);
+  --border-color: #e0e0e0;
+  --hover-shadow: rgba(67, 97, 238, 0.2);
+  --transition-speed: 0.4s;
+  --border-radius: 16px;
+  --border-radius-sm: 8px;
+}
+
+.dark {
+  --primary-color: #5a7dff;
+  --primary-light: #6d8cff;
+  --secondary-color: #64d9fe;
+  --accent-color: #9d4edd;
+  --text-color: #f1f1f1;
+  --text-light: #b0b0b0;
+  --card-bg: #1e1e1e;
+  --card-shadow: rgba(0, 0, 0, 0.3);
+  --border-color: #333;
+  --hover-shadow: rgba(90, 125, 255, 0.2);
+}
+
+/* Card Container */
+.friend-card {
+  width: 320px;
+  height: 420px;
+  perspective: 1500px;
+  cursor: pointer;
+  margin: 1rem;
+}
+
+.friend-card.hovered:not(.flipped) {
+  transform: translateY(-10px);
+}
+
+.card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform var(--transition-speed);
+  transform-style: preserve-3d;
+  border-radius: var(--border-radius);
+}
+
+.friend-card.flipped .card-inner {
+  transform: rotateY(180deg);
+}
+
+/* Front and Back of Card */
+.card-front,
+.card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  box-shadow: 0 10px 30px var(--card-shadow);
+  transition: all var(--transition-speed) ease;
+}
+
+.card-front {
+  background: var(--card-bg);
+  color: var(--text-color);
+  display: flex;
+  flex-direction: column;
+}
+
+.card-back {
+  background: linear-gradient(
+    135deg,
+    var(--primary-color),
+    var(--accent-color)
+  );
+  color: white;
+  transform: rotateY(180deg);
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Image Container */
+.image-container {
+  position: relative;
+  width: 100%;
+  height: 180px;
+  overflow: hidden;
+}
+
+.friend-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transition-speed) ease;
+}
+
+.friend-card:hover:not(.flipped) .friend-img {
+  transform: scale(1.05);
+}
+
+.image-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.7));
+  padding: 1rem;
+  transform: translateY(100%);
+  transition: transform var(--transition-speed) ease;
+}
+
+.friend-card:hover:not(.flipped) .image-overlay {
+  transform: translateY(0);
+}
+
+.view-details {
+  color: white;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+/* Friend Info */
+.friend-info {
+  padding: 1.5rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.friend-name {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: var(--primary-color);
+}
+
+.profession {
+  color: var(--text-light);
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.profession i {
+  color: var(--secondary-color);
+}
+
+/* Message Container */
+.message-container {
+  position: relative;
+  margin: 1rem 0;
+  padding: 0 1rem;
+}
+
+.quote-icon {
+  color: var(--secondary-color);
+  font-size: 0.8rem;
+  opacity: 0.7;
+}
+
+.quote-icon:first-child {
+  position: absolute;
+  top: -5px;
+  left: 0;
+}
+
+.quote-icon:last-child {
+  position: absolute;
+  bottom: -5px;
+  right: 0;
+}
+
+.message {
+  font-style: italic;
+  line-height: 1.5;
+  color: var(--text-color);
+  font-size: 0.95rem;
+  margin: 0;
+}
+
+/* Quick Stats */
+.quick-stats {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: auto;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border-color);
+  width: 100%;
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.stat i {
+  color: var(--primary-color);
+  font-size: 1.2rem;
+}
+
+.stat span {
+  font-size: 0.8rem;
+  color: var(--text-light);
+  font-weight: 500;
+}
+
+/* Back of Card Styles */
+.back-header {
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.back-header .friend-name {
+  color: white;
+  font-size: 1.8rem;
+}
+
+.back-header .profession {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+/* Skills Section */
+.skills-section {
+  margin-bottom: 1.5rem;
+  text-align: left;
+}
+
+.skills-section h4 {
+  color: white;
+  font-size: 1rem;
+  margin-bottom: 0.8rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.skills-section h4 i {
+  color: var(--secondary-color);
+}
+
+.skills-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.skill-tag {
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.2s ease;
+}
+
+.skill-tag:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateY(-2px);
+}
+
+/* Contact Section */
+.contact-section {
+  margin-bottom: 1.5rem;
+  text-align: left;
+}
+
+.contact-section h4 {
+  color: white;
+  font-size: 1rem;
+  margin-bottom: 0.8rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.contact-section h4 i {
+  color: var(--secondary-color);
+}
+
+.social-links {
+  display: flex;
+  gap: 0.8rem;
+  flex-wrap: wrap;
+}
+
+.social-btn {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.6rem 1rem;
+  border-radius: var(--border-radius-sm);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+  min-width: 120px;
+}
+
+.social-btn.github {
+  background: #333;
+  color: white;
+}
+
+.social-btn.github:hover {
+  background: #444;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.social-btn.linkedin {
+  background: #0077b5;
+  color: white;
+}
+
+.social-btn.linkedin:hover {
+  background: #00669c;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Action Buttons */
+.action-buttons {
+  display: flex;
+  gap: 0.8rem;
+  margin-top: auto;
+}
+
+.flip-btn,
+.message-btn {
+  flex: 1;
+  padding: 0.8rem 1rem;
+  border: none;
+  border-radius: var(--border-radius-sm);
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.flip-btn {
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.flip-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateY(-2px);
+}
+
+.message-btn {
+  background: white;
+  color: var(--primary-color);
+}
+
+.message-btn:hover {
+  background: var(--secondary-color);
+  color: white;
+  transform: translateY(-2px);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .friend-card {
+    width: 280px;
+    height: 380px;
+    margin: 0.5rem;
+  }
+
+  .image-container {
+    height: 150px;
+  }
+
+  .friend-name {
+    font-size: 1.3rem;
+  }
+
+  .message {
+    font-size: 0.85rem;
+  }
+
+  .social-btn {
+    min-width: 100px;
+    font-size: 0.8rem;
+    padding: 0.5rem 0.8rem;
+  }
+
+  .flip-btn,
+  .message-btn {
+    padding: 0.6rem 0.8rem;
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .friend-card {
+    width: 100%;
+    max-width: 320px;
+    height: 400px;
+    margin: 1rem auto;
+  }
+}
+
+/* Animation for card flip */
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.friend-card.hovered:not(.flipped) {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Glow effect on hover */
+.friend-card:not(.flipped):hover {
+  box-shadow: 0 15px 40px var(--hover-shadow);
+}
+
+/* Loading animation for image */
+.friend-img {
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: loading 1.5s infinite;
+}
+
+@keyframes loading {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+/* Dark mode adjustments for front card */
+.dark .card-front {
+  border: 1px solid var(--border-color);
+}
+
+.dark .friend-name {
+  color: var(--primary-light);
+}
+
+.dark .message {
+  color: var(--text-light);
+}

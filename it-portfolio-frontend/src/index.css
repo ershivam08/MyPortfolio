@@ -1,0 +1,40 @@
+/* CSS Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body Styling */
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #f4f6f8;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* Common Container (use later) */
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: auto;
+}
+
+/* Links */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Buttons (future use) */
+button {
+  cursor: pointer;
+  border: none;
+  outline: none;
+}
+
+/* Input fields (forms ke liye) */
+input,
+textarea {
+  font-family: inherit;
+}

@@ -1,0 +1,374 @@
+/* Footer.css */
+
+/* CSS Variables for consistency with Navbar */
+:root {
+  --primary-color: #4361ee;
+  --secondary-color: #3f37c9;
+  --accent-color: #4cc9f0;
+  --text-color: #333;
+  --text-light: #666;
+  --background-color: #ffffff;
+  --footer-bg: #f8f9fa;
+  --footer-border: #e0e0e0;
+  --transition-speed: 0.3s;
+}
+
+.dark {
+  --primary-color: #5a7dff;
+  --secondary-color: #4a5fc1;
+  --accent-color: #64d9fe;
+  --text-color: #f1f1f1;
+  --text-light: #b0b0b0;
+  --background-color: #121212;
+  --footer-bg: #1a1a1a;
+  --footer-border: #333;
+}
+
+/* Footer Base Styles */
+.footer {
+  background-color: var(--footer-bg);
+  color: var(--text-color);
+  padding: 2.5rem 1.5rem;
+  border-top: 1px solid var(--footer-border);
+  transition: all var(--transition-speed) ease;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Main Footer Container */
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2.5rem;
+}
+
+/* Footer Content Sections */
+.footer-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* Brand Section */
+.footer-brand {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.brand-logo {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--primary-color);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.brand-logo::before {
+  content: "</>";
+  font-size: 1.5rem;
+  background: linear-gradient(
+    135deg,
+    var(--primary-color),
+    var(--accent-color)
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 800;
+}
+
+.brand-tagline {
+  color: var(--text-light);
+  font-size: 0.95rem;
+  line-height: 1.5;
+  max-width: 300px;
+}
+
+/* Quick Links */
+.footer-links h3,
+.footer-contact h3 {
+  font-size: 1.2rem;
+  margin-bottom: 1.2rem;
+  color: var(--primary-color);
+  position: relative;
+  padding-bottom: 0.5rem;
+}
+
+.footer-links h3::after,
+.footer-contact h3::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 40px;
+  height: 2px;
+  background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+}
+
+.links-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.link-item {
+  color: var(--text-light);
+  text-decoration: none;
+  transition: all var(--transition-speed) ease;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.3rem 0;
+}
+
+.link-item:hover {
+  color: var(--primary-color);
+  transform: translateX(5px);
+}
+
+.link-item::before {
+  content: "→";
+  font-size: 0.9rem;
+  opacity: 0;
+  transition: opacity var(--transition-speed) ease;
+}
+
+.link-item:hover::before {
+  opacity: 1;
+}
+
+/* Contact Info */
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.contact-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.8rem;
+  color: var(--text-light);
+}
+
+.contact-icon {
+  font-size: 1.2rem;
+  color: var(--primary-color);
+  min-width: 24px;
+}
+
+.contact-text {
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
+
+.contact-text a {
+  color: var(--text-light);
+  text-decoration: none;
+  transition: color var(--transition-speed) ease;
+}
+
+.contact-text a:hover {
+  color: var(--primary-color);
+  text-decoration: underline;
+}
+
+/* Social Links */
+.footer-social {
+  margin-top: 1.5rem;
+}
+
+.social-title {
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  color: var(--text-color);
+}
+
+.social-links {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.social-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  font-size: 1.2rem;
+  transition: all var(--transition-speed) ease;
+  border: 1px solid var(--footer-border);
+  text-decoration: none;
+}
+
+.social-link:hover {
+  background-color: var(--primary-color);
+  color: white;
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Copyright Section */
+.footer-bottom {
+  margin-top: 3rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--footer-border);
+  text-align: center;
+}
+
+.copyright {
+  color: var(--text-light);
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+}
+
+.legal-links {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.legal-link {
+  color: var(--text-light);
+  font-size: 0.85rem;
+  text-decoration: none;
+  transition: color var(--transition-speed) ease;
+}
+
+.legal-link:hover {
+  color: var(--primary-color);
+}
+
+/* Decorative Elements */
+.footer::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(
+    90deg,
+    var(--primary-color),
+    var(--accent-color),
+    var(--primary-color)
+  );
+  background-size: 200% 100%;
+  animation: shimmer 3s infinite linear;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .footer {
+    padding: 2rem 1rem;
+  }
+
+  .footer-container {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .footer-content {
+    text-align: center;
+  }
+
+  .brand-tagline {
+    max-width: 100%;
+  }
+
+  .footer-links h3::after,
+  .footer-contact h3::after {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .link-item {
+    justify-content: center;
+  }
+
+  .contact-item {
+    justify-content: center;
+    text-align: center;
+  }
+
+  .social-links {
+    justify-content: center;
+  }
+
+  .legal-links {
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer {
+    padding: 1.5rem 0.8rem;
+  }
+
+  .brand-logo {
+    font-size: 1.5rem;
+  }
+
+  .footer-links h3,
+  .footer-contact h3 {
+    font-size: 1.1rem;
+  }
+
+  .social-link {
+    width: 36px;
+    height: 36px;
+    font-size: 1rem;
+  }
+
+  .copyright {
+    font-size: 0.8rem;
+  }
+}
+
+/* Animation for elements */
+.footer > * {
+  animation: fadeInUp 0.6s ease forwards;
+  opacity: 0;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Stagger animations for children */
+.footer-container > *:nth-child(1) {
+  animation-delay: 0.1s;
+}
+.footer-container > *:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.footer-container > *:nth-child(3) {
+  animation-delay: 0.3s;
+}
+.footer-bottom {
+  animation-delay: 0.4s;
+}
