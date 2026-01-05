@@ -1,4 +1,7 @@
+import React from "react";
+
 import { useState, useEffect } from "react";
+
 import { calculateGST } from "../../utils/calculators/gst";
 
 const GSTCalculator = () => {

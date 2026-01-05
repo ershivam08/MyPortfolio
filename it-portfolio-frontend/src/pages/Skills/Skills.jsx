@@ -1,4 +1,6 @@
 import "./Skills.css";
+import React from "react";
+
 import { useState } from "react";
 
 const Skills = () => {

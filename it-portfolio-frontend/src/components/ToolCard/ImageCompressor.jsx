@@ -1,4 +1,5 @@
 import { compressImage } from "../../utils/imageCompressor";
+import React from "react";
 
 const ImageCompressor = () => {
   const handleImage = (e) => {

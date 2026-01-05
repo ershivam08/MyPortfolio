@@ -1,4 +1,6 @@
 import { useEffect, useState } from "react";
+import React from "react";
+
 import API from "../../utils/api";
 import FriendCard from "../../components/FriendCard/FriendCard";
 import "./Friends.css";

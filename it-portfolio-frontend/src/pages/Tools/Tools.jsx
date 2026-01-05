@@ -1,4 +1,6 @@
 import "./Tools.css";
+import React from "react";
+
 import { useState, useEffect } from "react";
 
 // ✅ Tools components imports (yahin lagte hain)

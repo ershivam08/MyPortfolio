@@ -1,3 +1,5 @@
+import React from "react";
+
 import "./CompoundInterestCalculator.css";
 
 import { useState, useEffect } from "react";
